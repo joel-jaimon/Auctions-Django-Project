@@ -1,5 +1,5 @@
 # Auctions-Django
- Design of an eBay-like e-commerce auction site that will allow users to post auction listings, place bids on listings, comment on those listings, and add listings to a “watchlist.”
+ Design of a proper functional eBay-like e-commerce auction site that will allow users to post auction listings, place bids on listings, comment on those listings, and add listings to a “watchlist”.
  
  <h2>Django Admin Credentials:</h2>
  <li>UserID : "joel__jaimon"</li>
