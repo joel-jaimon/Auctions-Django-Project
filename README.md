@@ -14,7 +14,7 @@
  
 <h4>Create Listing Page:</h4>
 <li>
- Users will be able to visit a page to create a new listing. They will be able to specify a title for the listing, a text-based description, and what the starting bid should be. Users can also optionally be able to provide a URL for an image for the listing and/or a category (e.g. Fashion, Toys, Electronics, Home, etc.).
+ Users will be able to visit a page to create a new listing. They will be able to specify a title for the listing, a text-based description, and what the starting bid should be. Users can also optionally add an URL for an image for the listing and/or a category (e.g. Fashion, Toys, Electronics, Home, etc.).
 </li>
 
 <h4>Active Listings Page:</h4>
