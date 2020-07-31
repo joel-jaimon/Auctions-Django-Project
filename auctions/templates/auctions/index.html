@@ -1,0 +1,71 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Active Listings</h2>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="message">{{ message }}</div>
+    {% endfor %}
+    {% endif %}
+    <div id="activelist">
+    {% for list in a1 %}
+    <div class = "card">
+        <a class="title">{{list.title}}</a>
+        <a class= "cat">{{list.category}}</a>
+        {% if list.image_url %}
+            <img src="{{ list.image_url }}" class="list_img">
+        {% else %}
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/No_image_3x4.svg/1024px-No_image_3x4.svg.png" alt="No image Provided" class="list_img">
+        {% endif %}
+
+        <p class="desc">{{ list.desc }}</p>
+        <a><a class="c_price">Starting Bid: </a> {{ list.starting_bid }} $ </a>
+        <a href="{% url 'listingpage' list.id %}">View Bid</a>
+    </div>  
+    {% endfor %}
+    </div>
+      
+<style>
+p{
+    padding: 1vw;
+}
+#activelist{
+    margin-top: 4vw;
+    grid-gap: 2vw;
+    display:grid;
+    width: 90%;
+    margin-left: 5%;
+    grid-template-rows: repeat(auto,1fr);
+    grid-template-columns: 1fr 1fr 1fr;
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+}
+.card{
+    display: grid;
+    grid-template-rows: repeat(auto,1fr);
+    grid-template-columns: 1fr;
+    width: 90%;
+    margin-left: 5%;
+}
+
+img{
+        width: 100%;
+    }
+
+.title{
+
+    font-size: 2vw;
+    font-weight: bold;
+}
+.c_price{
+    font-weight: bold;
+}
+
+
+</style>
+
+
+
+{% endblock %}
+
+

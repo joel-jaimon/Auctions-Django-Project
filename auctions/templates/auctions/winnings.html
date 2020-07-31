@@ -1,0 +1,60 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Your Winnings</h2>
+    <div id="activelist">
+    {% for list in user_winlist %}
+    <div class = "card">
+        <a class="title">{{list.bid_win_list.title}}</a>
+        <a class= "cat">{{list.bid_win_list.category}}</a>
+        {% if list.bid_win_list.image_url %}
+            <img src="{{ list.bid_win_list.image_url }}" class="list_img">
+        {% else %}
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/No_image_3x4.svg/1024px-No_image_3x4.svg.png" alt="No image Provided" class="list_img">
+        {% endif %}
+        <p class="desc">{{ list.bid_win_list.desc }}</p>
+        <div>This bid was listed by <a class = "listuser">{{ list.bid_win_list.user }}</a>.</div>
+    </div>  
+    {% endfor %}
+    </div>
+      
+<style>
+        
+#activelist{
+    margin-top: 4vw;
+    grid-gap: 2vw;
+    display:grid;
+    width: 90%;
+    margin-left: 5%;
+    grid-template-rows: repeat(auto,1fr);
+    grid-template-columns: 1fr 1fr;
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+}
+.card{
+    display: grid;
+    grid-template-rows: repeat(auto,1fr);
+    grid-template-columns: 1fr;
+    width: 90%;
+    margin-left: 5%;
+}
+
+img{
+        width: 100%;
+    }
+
+.title{
+
+    font-size: 2vw;
+    font-weight: bold;
+}
+.listuser{
+    font-weight: bold;
+}
+button{
+    width: 100%;
+}
+</style>
+{% endblock %}
+
+

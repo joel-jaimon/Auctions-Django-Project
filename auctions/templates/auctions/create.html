@@ -1,0 +1,45 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2 style = "font-weight: bold;text-align: center; font-family: Nunito;">Create Listing</h2>
+    <div id="activelist">
+    <form method="POST">
+        {% csrf_token %}
+        <input required placeholder="Title" autofocus type="text" name="create_title"/>
+        <textarea placeholder="Add Description" required type="text" name="create_desc"></textarea>
+        <input required placeholder="Starting bid" type="number" name="create_initial_bid"/>
+        <input placeholder="Image URL (optional)" type="text" name="img_url"/>
+        <input required placeholder="Category" type="text" name="category"/>
+        <button class="btn btn-outline-primary" type="submit">Submit</button>
+    </form>    
+    </div>
+      
+<style>
+        
+#activelist{
+    width: 60%;
+    margin-left:20%;
+    
+}
+textarea{
+    height: 10vw;
+}
+form{
+    padding-top: 2vw;
+    display:grid;
+    grid-template-rows: repeat(auto,1fr);
+    grid-template-columns: 1fr;
+    grid-gap: 2vw;
+    font-family: 'Nunito', sans-serif;
+    }
+
+.btn{
+
+    font-family: Nunito;
+    width: 30%;
+    margin-left: 70%;
+}
+</style>
+{% endblock %}
+
+

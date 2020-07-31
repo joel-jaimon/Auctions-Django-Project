@@ -1,0 +1,66 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Watch List</h2>
+    <div id="activelist">
+    {% for list in user_watchlist %}
+    {% if list.watch_list.active_bool == True %}
+    <div class = "card">
+        <a class="title">{{list.watch_list.title}}</a>
+        <a class= "cat">{{list.watch_list.category}}</a>
+        {% if list.watch_list.image_url %}
+            <img src="{{ list.watch_list.image_url }}" class="list_img">
+        {% else %}
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/No_image_3x4.svg/1024px-No_image_3x4.svg.png" alt="No image Provided" class="list_img">
+        {% endif %}
+        <a><a class="c_price">Current Price: </a> {{ list.watch_list.starting_bid }} $ </a>
+        <a href="{% url 'listingpage' list.watch_list.id %}">View Bid</a>
+        
+        <form action = "{% url 'deletewatchlist' %}">
+        <button type = "submit" value = {{ list.id }} name = "listid" >Delete</button>
+        </form>
+    {% endif %}
+    </div>  
+    {% endfor %}
+    </div>
+      
+<style>
+        
+#activelist{
+    margin-top: 4vw;
+    grid-gap: 2vw;
+    display:grid;
+    width: 90%;
+    margin-left: 5%;
+    grid-template-rows: repeat(auto,1fr);
+    grid-template-columns: 1fr 1fr 1fr;
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+}
+.card{
+    display: grid;
+    grid-template-rows: repeat(auto,1fr);
+    grid-template-columns: 1fr;
+    width: 90%;
+    margin-left: 5%;
+}
+
+img{
+        width: 100%;
+    }
+
+.title{
+
+    font-size: 2vw;
+    font-weight: bold;
+}
+.c_price{
+    font-weight: bold;
+}
+button{
+    width: 100%;
+}
+</style>
+{% endblock %}
+
+

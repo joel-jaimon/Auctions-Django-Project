@@ -1,0 +1,13 @@
+body {
+    padding: 10px;
+    text-align: center;
+}
+.message{
+    background-color:  #15317E;
+    color: white;
+    padding: 2vw;
+}      
+
+.nav{
+    margin-top: 2.5vw;
+}
